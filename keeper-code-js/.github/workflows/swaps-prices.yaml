@@ -1,0 +1,37 @@
+name: Deploy swaps-prices to k8's cluster
+
+on:
+    push:
+        tags:
+            - "swaps-prices/v*"
+
+env:
+    GAR_LOCATION: us-central1
+    PROJECT_ID: ${{ secrets.PRICES_PROJECT_ID }}
+    GKE_CLUSTER: swaps-prices-cluster # Add your cluster name here.
+    GKE_ZONE: us-central1 # Add your cluster zone here.
+    DEPLOYMENT_NAME: swaps-prices # Add your deployment name here.
+    IMAGE: swaps-prices
+
+jobs:
+    setup-and-deploy:
+        name: Setup and Deploy
+        runs-on: ubuntu-latest
+
+        # Add "id-token" with the intended permissions.
+        permissions:
+            contents: "read"
+            id-token: "write"
+
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v3
+
+            - name: Run swaps-prices release
+              uses: ./.github/actions/swaps-prices
+              with:
+                  dry-run: true
+                  gke-sa-key: ${{ secrets.GKE_SA_KEY }}
+                  project-id: ${{ secrets.PRICES_PROJECT_ID }}
+                  gke-cluster: swaps-prices-cluster
+                  gke-zone: us-central1

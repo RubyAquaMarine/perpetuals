@@ -1,0 +1,25 @@
+{
+    "RPC": {
+        "primary_telos_testnet": "https://testnet.telos.net/evm",
+        "fallback_telos_testnet": "https://testnet.telos.net/evm"
+    },
+    "telosTestnetContracts": {
+        "vaultPriceFeed": "0x75C524c305B017CF9B3e070eF47f0f1fB3374A8E",
+        "positionRouter": "0xB5dD80E7AA0bBea56c1D672a0F3C9EE95dd03334"
+    },
+    "arbitrumContracts": {
+        "GmxFastPriceFeed": "0x11D62807dAE812a0F1571243460Bf94325F43BB7"
+    },
+    "telosMainnetContracts": {
+        "OmniDexRouter": "0xF9678db1CE83f6f51E5df348E2Cc842Ca51EfEc1",
+        "ApeSwapRouter": "0xb9667Cf9A495A123b0C43B924f6c2244f42817BE"
+    },
+    "arbitrumTokens": {
+        "BTC": "0x2f2a2543B76A4166549F7aaB2e75Bef0aefC5B0f",
+        "ETH": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1"
+    },
+    "telosTokens": {
+        "USDC": "0x818ec0A7Fe18Ff94269904fCED6AE3DaE6d6dC0b",
+        "WTLOS": "0xD102cE6A4dB07D247fcc28F366A623Df0938CA9E"
+    }
+}
